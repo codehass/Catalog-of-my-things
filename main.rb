@@ -1,5 +1,5 @@
 require_relative './app'
-require_relative './modules/menu'
+require_relative './classes/menu'
 
 class Main
   def initialize
@@ -10,7 +10,9 @@ class Main
     input = 1
     menu
     while input.to_i < 14
-   
+        print ': '
+        input = gets.chomp
+        @app.callmethodinapp(input)
     end
   end
 end

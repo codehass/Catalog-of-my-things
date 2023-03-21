@@ -1,11 +1,9 @@
-require_relatives 'options'
 
 
 class App
 
   def initialize
     @options = {
-      'List options here',
    
     }
   end
