@@ -159,20 +159,6 @@ I would like to thank Microverse for providing us with reading materials that ai
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-- **Can I use this code?**
-
-  - yes, it is open source. Feel free to fork it.
-
-- **Can I contribute to this project?**
-
-  - Contact me so I can add you as a collaborator. Alternatively you can leave an issue, it will be well appreciated.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
