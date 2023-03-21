@@ -6,15 +6,14 @@ class Main
     @app = App.new
   end
 
-  def start
+  def start_app
     input = 1
     menu
     while input.to_i < 14
-      print ': '
-      input = gets.chomp
+   
     end
   end
 end
 
 main = Main.new
-main.start
+main.start_app
