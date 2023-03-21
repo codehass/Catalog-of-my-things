@@ -10,12 +10,8 @@ class App
     }
   end
 
-  def handle_options(input)
-    if input.to_i.between?(1, 13)
-      @options[input].call
-    else
-      puts 'Invalid Input!'
-    end
+  def list_options(input)
+   
   end
 
   def quit_app
