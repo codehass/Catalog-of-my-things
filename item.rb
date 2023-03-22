@@ -22,6 +22,6 @@ class Item
     @genre = genre
     genre.items << self unless genre.items.include?(self)
   end
-  
+
   private :can_be_archived?
 end
