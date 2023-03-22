@@ -1,5 +1,5 @@
 def menu
-    puts '
+  puts '
       Please choose an option by entering a number:
        1 - List all books
        2 - List all music albums
@@ -14,5 +14,5 @@ def menu
        11 - Add a movie
        12 - Add a game
        13 - Exit'
-    puts 'Options:'
-  end
+  puts 'Options:'
+end
