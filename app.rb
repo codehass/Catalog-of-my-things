@@ -1,21 +1,12 @@
-require_relatives 'options'
-
-
 class App
-
+  puts
+  puts "Welcome to Catalog of my things app!\n\n"
   def initialize
-    @options = {
-      'List options here',
-   
-    }
-  end
-
-  def list_options(input)
-   
-  end
-
-  def quit_app
-    puts 'See you again!'
-    exit(true)
+    @books = []
+    @labels = []
+    @music_album = []
+    @genres = []
+    @games = []
+    @authors = []
   end
 end
