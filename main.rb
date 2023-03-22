@@ -39,3 +39,14 @@ def choice(user_answer, response)
   action = actions[user_answer]
   response.send(action)
 end
+def main
+  response = App.new
+  loop do
+    puts 'Please choose an option by entering a number [1-10]'
+    puts
+    user_answer = Main.new.menu
+    choice user_answer, response
+  end
+end
+
+main
