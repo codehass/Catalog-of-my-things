@@ -1,5 +1,6 @@
 require_relative './classes/music_album'
 require_relative './classes/genre'
+require_relative './load_data'
 
 class App
   puts
@@ -11,6 +12,10 @@ class App
     @genres = []
     @games = []
     @authors = []
+
+    loader = Loader.new
+    loader.load_albums(@music_album)
+    loader.load_genres(@genres)
   end
 
   # Code to list all books
