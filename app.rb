@@ -111,6 +111,8 @@ class App
 
   # exit function
   def exit_app
+    File.write('./JSON/music_album.json', JSON.generate(@music_album))
+    File.write('./JSON/genres.json', JSON.generate(@genres))
     puts 'Thank you for using this app!'
     exit
   end
