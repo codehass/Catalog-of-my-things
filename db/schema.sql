@@ -47,3 +47,11 @@ CREATE TABLE music_album(
     publish_date DATE,
     genre_id INT REFERENCES genre(id)
 )
+
+-- Create Games Table
+CREATE TABLE games (
+  id INT,
+  multiplayer BOOLEAN,
+  last_played_at DATE,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
