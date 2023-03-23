@@ -22,7 +22,8 @@ class App
       return
     end
     @books.each_with_index do |book, index|
-      print "#{index + 1}-Name: #{book.name} , Publisher: #{book.publisher}, Cover state: #{book.cover_state} , Publish date: #{book.publish_date}\n\n"
+      print "#{index + 1}-Name: #{book.name} , Publisher: #{book.publisher},
+       Cover state: #{book.cover_state} , Publish date: #{book.publish_date}\n\n"
     end
   end
 
@@ -31,10 +32,10 @@ class App
     if @labels.empty?
       puts 'no labels yet!'
     else
-    @labels.each do |label|
-      print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
+      @labels.each do |label|
+        print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
+      end
     end
-  end
   end
 
   # Code to list all music album
