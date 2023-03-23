@@ -36,9 +36,9 @@ class App
       puts 'There are no music albums!'
     else
       @music_album.each_with_index do |album, index|
-        print "[Album #{index + 1}]  Published date : #{album.publish_date}, Genre : #{album.genre.name},"
-        puts " on spotify : #{album.on_spotify}"
-        if album.on_spotify
+        print "[Album #{index + 1}]  Published date : #{album['publish_date']}, Genre : #{album['name']},"
+        puts " on spotify : #{album['on_spotify']}"
+        if album['on_spotify']
           puts 'Available on spotify.'
         else
           puts 'Not available on spotify.'
@@ -54,7 +54,7 @@ class App
     else
       puts 'All the genres:'
       @genres.each_with_index do |genre, index|
-        puts "#{index + 1}. #{genre.name}"
+        puts "#{index + 1}. #{genre['name']}"
       end
     end
   end
