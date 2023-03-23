@@ -26,10 +26,13 @@ class App
   end
 
   # Code to list all labels7
-
   def list_labels
-    puts 'labels'
-    puts
+    if @labels.empty?
+      puts 'no labels yet!'
+    else
+    @labels.each do |label|
+      print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
+    end
   end
 
   # Code to list all music album
