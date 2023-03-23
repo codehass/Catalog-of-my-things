@@ -2,6 +2,8 @@ require_relative './classes/music_album'
 require_relative './classes/genre'
 require_relative './load_data'
 require 'json'
+require_relative './classes/book'
+require_relative './classes/label'
 
 class App
   puts
@@ -21,14 +23,25 @@ class App
 
   # Code to list all books
   def list_books
-    puts 'books'
-    puts
+    if @books.empty?
+      puts 'There are no books in the library'
+      return
+    end
+    @books.each_with_index do |book, index|
+      print "#{index + 1}-Name: #{book.name} , Publisher: #{book.publisher},
+       Cover state: #{book.cover_state} , Publish date: #{book.publish_date}\n\n"
+    end
   end
 
-  # Code to list all labels
+  # Code to list all labels7
   def list_labels
-    puts 'labels'
-    puts
+    if @labels.empty?
+      puts 'no labels yet!'
+    else
+      @labels.each do |label|
+        print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
+      end
+    end
   end
 
   # Code to list all music album
@@ -74,8 +87,22 @@ class App
 
   # Code to add book
   def add_book
-    puts 'add book'
-    puts
+    puts 'Please enter the name of the book:'
+    name = gets.chomp
+    puts 'Please nter the publisher:'
+    publisher = gets.chomp
+    puts 'Please enter state of the book: good or bad'
+    cover_state = gets.chomp
+    if cover_state != 'good' && cover_state != 'bad'
+      puts 'Invalid state'
+      return
+    end
+    puts 'Please enter the publish date of the book: YYYY-MM-DD'
+    date = gets.chomp
+    puts date
+    book = Book.new(name, publisher, cover_state, date)
+    @books << book
+    puts 'Book added successfully!'
   end
 
   # Code to add music album
