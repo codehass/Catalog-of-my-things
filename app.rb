@@ -4,6 +4,8 @@ require_relative './load_data'
 require 'json'
 require_relative './classes/book'
 require_relative './classes/label'
+require_relative './classes/game'
+require_relative './classes/author'
 
 class App
   puts
@@ -75,14 +77,27 @@ class App
 
   # Code to list all games
   def list_games
-    puts 'games'
-    puts
+    if @games.empty?
+      puts 'There is no game added!'
+    else
+      puts 'All the games: '
+      @games.each_with_index do |game, index|
+        print "[Game #{index + 1}]. Multiplayer : #{game.multiplayer}, "
+        puts "Publish Date : #{game.publish_date}, Last Played Date : #{game.last_played_at}"
+      end
+    end
   end
 
   # Code to list all authors
   def list_authors
-    puts 'authors'
-    puts
+    if @authors.empty?
+      puts 'There are no authors!'
+    else
+      puts 'Authors:'
+      @authors.each_with_index do |author, index|
+        puts "[Author #{index + 1}]. First Name : #{author.first_name}, Last Name : #{author.last_name} "
+      end
+    end
   end
 
   # Code to add book
@@ -140,8 +155,28 @@ class App
 
   # Code to add game
   def add_game
-    puts 'add game'
-    puts
+    puts 'Is it a multiplayer game? [Y/N]: '
+    multiplayer = gets.chomp.to_s.downcase
+    multiplayer = %w[y yes].include?(multiplayer)
+    puts 'What is the publish date for the game [yyyy-mm-dd]: '
+    publish_date = gets.chomp
+    puts 'What is the last played date [yyyy-mm-dd]: '
+    last_played_date = gets.chomp
+    game = Game.new(publish_date, multiplayer, last_played_date)
+    @games << game
+    author = add_author
+    author.add_item(game)
+    puts "The game created with #{author.first_name} author added successfully!"
+  end
+
+  def add_author
+    print 'Enter the first name of the author: '
+    first_name = gets.chomp
+    print 'Enter the last name of the author: '
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    @authors << author
+    author
   end
 
   # exit function
