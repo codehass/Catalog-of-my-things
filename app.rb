@@ -152,8 +152,22 @@ class App
 
   # Code to add game
   def add_game
-    puts 'add game'
-    puts
+    puts 'Is it a multiplayer game? [Y/N]: '
+    multiplayer = gets.chomp.to_s.downcase
+    if multiplayer == 'y' || multiplayer == 'yes'
+      multiplayer = true
+    else
+      multiplayer = false
+    end
+    puts 'What is the publish date for the game [yyyy-mm-dd]: '
+    publish_date = gets.chomp
+    puts 'What is the last played date [yyyy-mm-dd]: '
+    last_played_date = gets.chomp
+    game = Game.new(publish_date, multiplayer, last_played_date)
+    @games << game
+    author = add_author
+    author.add_item(game)
+    puts "The game created with #{author.first_name} author added successfully!"
   end
 
   # exit function
