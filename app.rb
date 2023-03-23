@@ -42,9 +42,9 @@ class App
   # Code to list all genres
   def list_genres
     if @genres.empty?
-      puts "There are no genres!"
+      puts 'There are no genres!'
     else
-      puts "All the genres:"
+      puts 'All the genres:'
       @genres.each_with_index do |genre, index|
         puts "#{index + 1}. #{genre.name}"
       end
