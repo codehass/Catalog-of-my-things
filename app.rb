@@ -88,17 +88,16 @@ class App
     on_spotify = %w[y yes].include?(on_spotify)
 
     album = MusicAlbum.new(publish_date, on_spotify)
-    # @music_album << album
     genre = add_genres
     genre.add_item(album)
 
-    albumHash = {
+    album_hash = {
       'on_spotify' => album.instance_variable_get('@on_spotify'),
-      'publish_date'=> album.instance_variable_get('@publish_date'),
-      'name'=> genre.name
+      'publish_date' => album.instance_variable_get('@publish_date'),
+      'name' => genre.name
     }
 
-    @music_album << albumHash
+    @music_album << album_hash
     puts "Album of genre '#{genre.name}' and publish date '#{publish_date}' added successfully!"
   end
 
@@ -107,8 +106,7 @@ class App
     print 'Enter the name of the genre: '
     name = gets.chomp
     genre = Genre.new(name)
-    # @genres << genre
-    @genres << {'name' => genre.name}
+    @genres << { 'name' => genre.name }
     puts @genres[0]['name']
     genre
   end
