@@ -82,8 +82,8 @@ class App
     else
       puts 'All the games: '
       @games.each_with_index do |game, index|
-        print "[Game #{index + 1}]. Multiplayer : #{game.multiplayer}, "
-        puts "Publish Date : #{game.publish_date}, Last Played Date : #{game.last_played_at}"
+        print "[Game #{index + 1}]. Multiplayer : #{game['multiplayer']}, Publish Date :"
+        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_at']}"
       end
     end
   end
