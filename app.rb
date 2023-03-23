@@ -163,7 +163,12 @@ class App
     puts 'What is the last played date [yyyy-mm-dd]: '
     last_played_date = gets.chomp
     game = Game.new(publish_date, multiplayer, last_played_date)
-    @games << game
+    game_hash = {
+      'publish_date'=>  publish_date,
+      'multiplayer'=>  multiplayer,
+      'last_played_date'=> last_played_date
+    }
+    @games << game_hash
     author = add_author
     author.add_item(game)
     puts "The game created with #{author.first_name} author added successfully!"
@@ -175,7 +180,11 @@ class App
     print 'Enter the last name of the author: '
     last_name = gets.chomp
     author = Author.new(first_name, last_name)
-    @authors << author
+    author_hash = {
+      "first_name" => first_name,
+      "last_name" => last_name
+     }
+    @authors << author_hash
     author
   end
 
