@@ -21,6 +21,8 @@ class App
     loader = Loader.new
     loader.load_albums(@music_album)
     loader.load_genres(@genres)
+    loader.load_games(@games)
+    loader.load_authors(@authors)
   end
 
   # Code to list all books
@@ -63,7 +65,6 @@ class App
     end
   end
 
-  # Code to list all genres
   def list_genres
     if @genres.empty?
       puts 'There are no genres!'
@@ -75,32 +76,29 @@ class App
     end
   end
 
-  # Code to list all games
   def list_games
     if @games.empty?
       puts 'There is no game added!'
     else
       puts 'All the games: '
       @games.each_with_index do |game, index|
-        print "[Game #{index + 1}]. Multiplayer : #{game.multiplayer}, "
-        puts "Publish Date : #{game.publish_date}, Last Played Date : #{game.last_played_at}"
+        print "[Game #{index + 1}]. Multiplayer : #{game['multiplayer']}, Publish Date :"
+        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_at']}"
       end
     end
   end
 
-  # Code to list all authors
   def list_authors
     if @authors.empty?
       puts 'There are no authors!'
     else
       puts 'Authors:'
       @authors.each_with_index do |author, index|
-        puts "[Author #{index + 1}]. First Name : #{author.first_name}, Last Name : #{author.last_name} "
+        puts "[Author #{index + 1}]. First Name : #{author['first_name']}, Last Name : #{author['last_name']} "
       end
     end
   end
 
-  # Code to add book
   def add_book
     puts 'Please enter the name of the book:'
     name = gets.chomp
@@ -120,30 +118,24 @@ class App
     puts 'Book added successfully!'
   end
 
-  # Code to add music album
   def add_music_album
     print 'Please enter the published date [yyyy-mm-dd] : '
     publish_date = gets.chomp.to_s
     print 'Is it on spotify? [y/n] : '
     on_spotify = gets.chomp.to_s.downcase
-
     on_spotify = %w[y yes].include?(on_spotify)
-
     album = MusicAlbum.new(publish_date, on_spotify)
     genre = add_genres
     genre.add_item(album)
-
     album_hash = {
       'on_spotify' => album.instance_variable_get('@on_spotify'),
       'publish_date' => album.instance_variable_get('@publish_date'),
       'name' => genre.name
     }
-
     @music_album << album_hash
     puts "Album of genre '#{genre.name}' and publish date '#{publish_date}' added successfully!"
   end
 
-  # Code to add game
   def add_genres
     print 'Enter the name of the genre: '
     name = gets.chomp
@@ -153,7 +145,6 @@ class App
     genre
   end
 
-  # Code to add game
   def add_game
     puts 'Is it a multiplayer game? [Y/N]: '
     multiplayer = gets.chomp.to_s.downcase
@@ -163,27 +154,40 @@ class App
     puts 'What is the last played date [yyyy-mm-dd]: '
     last_played_date = gets.chomp
     game = Game.new(publish_date, multiplayer, last_played_date)
-    @games << game
+    game_hash = {
+      'publish_date' => publish_date,
+      'multiplayer' => multiplayer,
+      'last_played_date' => last_played_date
+    }
+    @games << game_hash
     author = add_author
     author.add_item(game)
     puts "The game created with #{author.first_name} author added successfully!"
   end
 
-  def add_author
-    print 'Enter the first name of the author: '
-    first_name = gets.chomp
-    print 'Enter the last name of the author: '
-    last_name = gets.chomp
-    author = Author.new(first_name, last_name)
-    @authors << author
-    author
-  end
+  add_author
+  exit_app
+end
 
-  # exit function
-  def exit_app
-    File.write('./JSON/music_album.json', JSON.generate(@music_album))
-    File.write('./JSON/genres.json', JSON.generate(@genres))
-    puts 'Thank you for using this app!'
-    exit
-  end
+def add_author
+  print 'Enter the first name of the author: '
+  first_name = gets.chomp
+  print 'Enter the last name of the author: '
+  last_name = gets.chomp
+  author = Author.new(first_name, last_name)
+  author_hash = {
+    'first_name' => first_name,
+    'last_name' => last_name
+  }
+  @authors << author_hash
+  author
+end
+
+def exit_app
+  File.write('./JSON/music_album.json', JSON.generate(@music_album))
+  File.write('./JSON/genres.json', JSON.generate(@genres))
+  File.write('./JSON/games.json', JSON.generate(@games))
+  File.write('./JSON/authors.json', JSON.generate(@authors))
+  puts 'Thank you for using this app!'
+  exit
 end
