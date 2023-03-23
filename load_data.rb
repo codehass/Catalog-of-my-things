@@ -18,4 +18,15 @@ class Loader
       genres = []
     end
   end
+
+  def load_games(games)
+    if File.exist?('./data/games.json')
+      JSON.parse(File.read('./data/games.json')).each do |game|
+        games << game
+      end
+    else
+      games = []
+    end
+  end
+  
 end
