@@ -1,13 +1,13 @@
-require_relative './classes/music_album'
-require_relative './classes/genre'
 require_relative './load_data'
 require 'json'
 require_relative './classes/book'
 require_relative './classes/label'
 require_relative './classes/game'
 require_relative './classes/author'
+require_relative './modules/music_album_module'
 
 class App
+  include MusicAlbumModule
   puts
   puts "Welcome to Catalog of my things app!\n\n"
   def initialize
@@ -44,34 +44,6 @@ class App
     else
       @labels.each do |label|
         print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
-      end
-    end
-  end
-
-  # Code to list all music album
-  def list_music_album
-    if @music_album.empty?
-      puts 'There are no music albums!'
-    else
-      @music_album.each_with_index do |album, index|
-        print "[Album #{index + 1}]  Published date : #{album['publish_date']}, Genre : #{album['name']},"
-        puts " on spotify : #{album['on_spotify']}"
-        if album['on_spotify']
-          puts 'Available on spotify.'
-        else
-          puts 'Not available on spotify.'
-        end
-      end
-    end
-  end
-
-  def list_genres
-    if @genres.empty?
-      puts 'There are no genres!'
-    else
-      puts 'All the genres:'
-      @genres.each_with_index do |genre, index|
-        puts "#{index + 1}. #{genre['name']}"
       end
     end
   end
@@ -118,33 +90,6 @@ class App
     puts 'Book added successfully!'
   end
 
-  def add_music_album
-    print 'Please enter the published date [yyyy-mm-dd] : '
-    publish_date = gets.chomp.to_s
-    print 'Is it on spotify? [y/n] : '
-    on_spotify = gets.chomp.to_s.downcase
-    on_spotify = %w[y yes].include?(on_spotify)
-    album = MusicAlbum.new(publish_date, on_spotify)
-    genre = add_genres
-    genre.add_item(album)
-    album_hash = {
-      'on_spotify' => album.instance_variable_get('@on_spotify'),
-      'publish_date' => album.instance_variable_get('@publish_date'),
-      'name' => genre.name
-    }
-    @music_album << album_hash
-    puts "Album of genre '#{genre.name}' and publish date '#{publish_date}' added successfully!"
-  end
-
-  def add_genres
-    print 'Enter the name of the genre: '
-    name = gets.chomp
-    genre = Genre.new(name)
-    @genres << { 'name' => genre.name }
-    puts @genres[0]['name']
-    genre
-  end
-
   def add_game
     puts 'Is it a multiplayer game? [Y/N]: '
     multiplayer = gets.chomp.to_s.downcase
@@ -165,29 +110,26 @@ class App
     puts "The game created with #{author.first_name} author added successfully!"
   end
 
-  add_author
-  exit_app
-end
+  def add_author
+    print 'Enter the first name of the author: '
+    first_name = gets.chomp
+    print 'Enter the last name of the author: '
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    author_hash = {
+      'first_name' => first_name,
+      'last_name' => last_name
+    }
+    @authors << author_hash
+    author
+  end
 
-def add_author
-  print 'Enter the first name of the author: '
-  first_name = gets.chomp
-  print 'Enter the last name of the author: '
-  last_name = gets.chomp
-  author = Author.new(first_name, last_name)
-  author_hash = {
-    'first_name' => first_name,
-    'last_name' => last_name
-  }
-  @authors << author_hash
-  author
-end
-
-def exit_app
-  File.write('./JSON/music_album.json', JSON.generate(@music_album))
-  File.write('./JSON/genres.json', JSON.generate(@genres))
-  File.write('./JSON/games.json', JSON.generate(@games))
-  File.write('./JSON/authors.json', JSON.generate(@authors))
-  puts 'Thank you for using this app!'
-  exit
+  def exit_app
+    File.write('./JSON/music_album.json', JSON.generate(@music_album))
+    File.write('./JSON/genres.json', JSON.generate(@genres))
+    File.write('./JSON/games.json', JSON.generate(@games))
+    File.write('./JSON/authors.json', JSON.generate(@authors))
+    puts 'Thank you for using this app!'
+    exit
+  end
 end
