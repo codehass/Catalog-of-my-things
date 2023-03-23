@@ -42,5 +42,16 @@ class Loader
     end
     data
   end
-    
+  def load_labels
+    file = './json/labels.json'
+    data = []
+    if File.exist?(file) && !File.empty?(file)
+      JSON.parse(File.read(file)).each do |element|
+        data.push(Label.new(element['id'].to_i, element['title'], element['color']))
+      end
+    end
+    data
+  end
+
+  
 end
