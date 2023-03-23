@@ -24,9 +24,9 @@ describe Book do
       expect(book.cover_state).to eq 'cover_state'
     end
 
-    it 'should detect the book publish_date' do
-      book = Book.new('name', 'author', 'cover_state', '1995-05-12')
-      expect(book.publish_date).to eq(Date.parse('1995-05-12'))
-    end
+    it 'detect the book publish_date' do
+        book = Book.new('name', 'author', 'cover_state', '1995-05-12')
+        expect(Date.parse(book.publish_date)).to eq Date.parse('1995-05-12')
+      end
   end
 end
