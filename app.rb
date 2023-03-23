@@ -1,4 +1,4 @@
-class App
+class App 
   puts
   puts "Welcome to Catalog of my things app!\n\n"
   def initialize
