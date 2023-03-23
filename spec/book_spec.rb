@@ -28,5 +28,9 @@ describe Book do
       book = Book.new('name', 'author', 'cover_state', '1995-05-12')
       expect(Date.parse(book.publish_date)).to eq Date.parse('1995-05-12')
     end
-  end
+    it 'detect the book archive state' do
+        book = Book.new('Bear Trap', 'Hamid Gul', 'good', '1995-05-12')
+        expect(book.archived).to be false
+      end
+    end
 end
