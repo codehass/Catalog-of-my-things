@@ -169,7 +169,17 @@ class App
     author.add_item(game)
     puts "The game created with #{author.first_name} author added successfully!"
   end
-
+  
+  def add_author
+    print 'Enter the first name of the author: '
+    first_name  = gets.chomp
+    print 'Enter the last name of the author: '
+    last_name  = gets.chomp
+    author = Author.new(first_name, last_name)
+    @authors << author
+     author
+  end
+  
   # exit function
   def exit_app
     File.write('./JSON/music_album.json', JSON.generate(@music_album))
