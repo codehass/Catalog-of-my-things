@@ -1,6 +1,7 @@
 require_relative './classes/music_album'
 require_relative './classes/genre'
 require_relative './classes/book'
+require_relative './classes/label'
 
 class App
   puts
@@ -33,6 +34,7 @@ class App
     @labels.each do |label|
       print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
     end
+  end
   end
 
   # Code to list all music album
