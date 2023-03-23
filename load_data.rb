@@ -38,5 +38,4 @@ class Loader
       authors = []
     end
   end
-
 end
