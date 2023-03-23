@@ -40,3 +40,10 @@ CREATE TABLE genre(
     name VARCHAR(255)
 )
 
+-- Create music_album Table
+CREATE TABLE music_album(
+    id SERIAL PRIMARY KEY,
+    on_spotify BOOLEAN,
+    publish_date DATE,
+    genre_id INT REFERENCES genre(id)
+)
