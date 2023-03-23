@@ -19,6 +19,15 @@ class Loader
     end
   end
 
-  
+  def load_books
+    data = []
+    file = './json_db/books.json'
+    if File.exist?(file) && !File.empty?(file)
+      JSON.parse(File.read(file)).each do |element|
+        data << Book.new(element['name'], element['publisher'], element['cover_state'], element['publish_date'])
+      end
+    end
+    data
+  end
 
 end
