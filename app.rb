@@ -19,6 +19,7 @@ class App
     loader = Loader.new
     loader.load_albums(@music_album)
     loader.load_genres(@genres)
+    loader.load_books(@books)
   end
 
   # Code to list all books
