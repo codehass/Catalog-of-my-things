@@ -1,8 +1,7 @@
-require_relative '../classes/genre.rb'
+require_relative '../classes/genre'
 require_relative '../item'
 
 describe Genre do
-  
   before :each do
     @genre = Genre.new('Genre name')
     @item = Item.new('2020-01-01', archived: true)

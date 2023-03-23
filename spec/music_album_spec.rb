@@ -2,7 +2,7 @@ require_relative '../classes/music_album'
 
 describe MusicAlbum do
   before :each do
-    @music_album = MusicAlbum.new('2000-02-02',false)
+    @music_album = MusicAlbum.new('2000-02-02', false)
   end
 
   it 'creates an instance of MusicAlbum class' do
@@ -28,5 +28,4 @@ describe MusicAlbum do
   it 'returns true when can_be_archived? is called and publish_date is greater than 10 years' do
     expect(@music_album.can_be_archived?).to be false
   end
-
 end
