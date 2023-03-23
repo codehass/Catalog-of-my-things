@@ -33,3 +33,10 @@ CREATE TABLE sources(
     PRIMARY KEY(id),
     
 );
+
+-- Create genre Table
+CREATE TABLE genre(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255)
+)
+
