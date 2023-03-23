@@ -1,6 +1,7 @@
 require_relative './classes/music_album'
 require_relative './classes/genre'
 require_relative './load_data'
+require 'json'
 
 class App
   puts
