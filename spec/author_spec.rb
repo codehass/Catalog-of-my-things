@@ -3,7 +3,7 @@ require_relative '../classes/author'
 describe Author do
   before :each do
     @author = Author.new 'First name', 'Last name'
-    @item = Item.new ('2020-01-12')
+    @item = Item.new('2020-01-12')
   end
 
   it '@author should be an instance of Author class' do
