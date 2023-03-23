@@ -41,8 +41,14 @@ class App
 
   # Code to list all genres
   def list_genres
-    puts 'genres'
-    puts
+    if @genres.empty?
+      puts "There are no genres!"
+    else
+      puts "All the genres:"
+      @genres.each_with_index do |genre, index|
+        puts "#{index + 1}. #{genre.name}"
+      end
+    end
   end
 
   # Code to list all games
