@@ -1,3 +1,6 @@
+require_relative './classes/music_album'
+require_relative './classes/genre'
+
 class App
   puts
   puts "Welcome to Catalog of my things app!\n\n"
@@ -24,14 +27,31 @@ class App
 
   # Code to list all music album
   def list_music_album
-    puts 'music album'
-    puts
+    if @music_album.empty?
+      puts 'There are no music albums!'
+    else
+      @music_album.each_with_index do |album, index|
+        print "[Album #{index + 1}]  Published date : #{album.publish_date}, Genre : #{album.genre.name},"
+        puts " on spotify : #{album.on_spotify}"
+        if album.on_spotify
+          puts 'Available on spotify.'
+        else
+          puts 'Not available on spotify.'
+        end
+      end
+    end
   end
 
   # Code to list all genres
   def list_genres
-    puts 'genres'
-    puts
+    if @genres.empty?
+      puts 'There are no genres!'
+    else
+      puts 'All the genres:'
+      @genres.each_with_index do |genre, index|
+        puts "#{index + 1}. #{genre.name}"
+      end
+    end
   end
 
   # Code to list all games
@@ -54,8 +74,28 @@ class App
 
   # Code to add music album
   def add_music_album
-    puts 'add album'
-    puts
+    print 'Please enter the published date [yyyy-mm-dd] : '
+    publish_date = gets.chomp.to_s
+    print 'Is it on spotify? [y/n] : '
+    on_spotify = gets.chomp.to_s.downcase
+
+    on_spotify = %w[y yes].include?(on_spotify)
+
+    album = MusicAlbum.new(publish_date, on_spotify)
+    @music_album << album
+    genre = add_genres
+    genre.add_item(album)
+
+    puts "Album of genre '#{genre.name}' and publish date '#{publish_date}' added successfully!"
+  end
+
+  # Code to add game
+  def add_genres
+    print 'Enter the name of the genre: '
+    name = gets.chomp
+    genre = Genre.new(name)
+    @genres << genre
+    genre
   end
 
   # Code to add game
