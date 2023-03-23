@@ -18,4 +18,7 @@ class Loader
       genres = []
     end
   end
+
+  
+
 end
