@@ -81,8 +81,14 @@ class App
 
   # Code to list all authors
   def list_authors
-    puts 'authors'
-    puts
+    if @authors.empty?
+      puts 'There are no authors!'
+    else
+      puts 'Authors:'
+      @authors.each_with_index do |author, index|
+        puts "[Author #{index + 1}]. First Name : #{author.first_name}, Last Name : #{author.last_name} "
+      end
+    end
   end
 
   # Code to add book
