@@ -23,5 +23,9 @@ class Item
     genre.items << self unless genre.items.include?(self)
   end
 
+  def add_author(author)
+    @author = author
+  end
+
   private :can_be_archived?
 end
