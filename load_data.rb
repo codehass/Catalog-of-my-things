@@ -58,7 +58,7 @@ class Loader
     @labels.each do |label|
       data.push({ id: label.id, title: label.title, color: label.color })
     end
-    File.write('./json_db/labels.json', JSON.pretty_generate(data))
+    File.write('./json/labels.json', JSON.pretty_generate(data))
   end
 
   def create_label(string, item)
