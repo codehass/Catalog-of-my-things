@@ -8,4 +8,14 @@ class Loader
       music_album = []
     end
   end
+  
+  def load_genres(genres)
+    if File.exist?('./data/genres.json')
+      JSON.parse(File.read('./data/genres.json')).each do |genre|
+        genres << genre
+      end
+    else
+      genres = []
+    end
+  end
 end
