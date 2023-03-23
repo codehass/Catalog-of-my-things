@@ -78,9 +78,10 @@ class App
     if @games.empty?
       puts 'There is no game added!'
     else
-      puts "All the games: "
+      puts 'All the games: '
       @games.each_with_index do |game, index|
-        puts "[Game #{index + 1}]. Multiplayer : #{game.multiplayer}, Publish Date : #{game.publish_date}, Last Played Date : #{game.last_played_at}"
+        print "[Game #{index + 1}]. Multiplayer : #{game.multiplayer}, "
+        puts "Publish Date : #{game.publish_date}, Last Played Date : #{game.last_played_at}"
       end
     end
   end
@@ -154,11 +155,7 @@ class App
   def add_game
     puts 'Is it a multiplayer game? [Y/N]: '
     multiplayer = gets.chomp.to_s.downcase
-    if multiplayer == 'y' || multiplayer == 'yes'
-      multiplayer = true
-    else
-      multiplayer = false
-    end
+    multiplayer = %w[y yes].include?(multiplayer)
     puts 'What is the publish date for the game [yyyy-mm-dd]: '
     publish_date = gets.chomp
     puts 'What is the last played date [yyyy-mm-dd]: '
@@ -169,17 +166,17 @@ class App
     author.add_item(game)
     puts "The game created with #{author.first_name} author added successfully!"
   end
-  
+
   def add_author
     print 'Enter the first name of the author: '
-    first_name  = gets.chomp
+    first_name = gets.chomp
     print 'Enter the last name of the author: '
-    last_name  = gets.chomp
+    last_name = gets.chomp
     author = Author.new(first_name, last_name)
     @authors << author
-     author
+    author
   end
-  
+
   # exit function
   def exit_app
     File.write('./JSON/music_album.json', JSON.generate(@music_album))
