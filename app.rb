@@ -24,8 +24,19 @@ class App
 
   # Code to list all music album
   def list_music_album
-    puts 'music album'
-    puts
+    if @music_album.empty?
+      puts 'There are no music albums!'
+    else
+      @music_album.each_with_index do |album, index|
+        print "[Album #{index + 1}]  Published date : #{album.publish_date}, Genre : #{album.name},"
+        puts " on spotify : #{album.on_spotify}"
+        if album.on_spotify
+          puts 'Available on spotify.'
+        else
+          puts 'Not available on spotify.'
+        end
+      end
+    end
   end
 
   # Code to list all genres
