@@ -8,6 +8,8 @@ module MusicAlbumModule
     if @music_album.empty?
       puts 'There are no music albums!'
     else
+      puts 'All the music albums:'
+      puts '----------------------------'
       @music_album.each_with_index do |album, index|
         print "[Album #{index + 1}]  Published date : #{album['publish_date']}, Genre : #{album['name']},"
         puts " on spotify : #{album['on_spotify']}"
@@ -16,6 +18,7 @@ module MusicAlbumModule
         else
           puts 'Not available on spotify.'
         end
+        puts '----------------------------'
       end
     end
   end

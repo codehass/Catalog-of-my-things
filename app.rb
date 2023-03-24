@@ -57,20 +57,25 @@ class App
       puts 'There is no game added!'
     else
       puts 'All the games: '
+      puts '----------------------------'
       @games.each_with_index do |game, index|
         print "[Game #{index + 1}]. Multiplayer : #{game['multiplayer']}, Publish Date :"
-        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_at']}"
+        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_date']}"
+        puts '----------------------------'
       end
     end
   end
 
   def list_authors
+    puts 'All authors: '
+    puts '----------------------------'
     if @authors.empty?
       puts 'There are no authors!'
     else
       puts 'Authors:'
       @authors.each_with_index do |author, index|
         puts "[Author #{index + 1}]. First Name : #{author['first_name']}, Last Name : #{author['last_name']} "
+        puts '----------------------------'
       end
     end
   end
@@ -132,10 +137,10 @@ class App
   end
 
   def exit_app
-    File.write('./JSON/music_album.json', JSON.generate(@music_album))
-    File.write('./JSON/genres.json', JSON.generate(@genres))
-    File.write('./JSON/games.json', JSON.generate(@games))
-    File.write('./JSON/authors.json', JSON.generate(@authors))
+    File.write('./JSON/music_album.json', JSON.pretty_generate(@music_album))
+    File.write('./JSON/genres.json', JSON.pretty_generate(@genres))
+    File.write('./JSON/games.json', JSON.pretty_generate(@games))
+    File.write('./JSON/authors.json', JSON.pretty_generate(@authors))
     puts 'Thank you for using this app!'
     exit
   end

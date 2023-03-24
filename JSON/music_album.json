@@ -1,1 +1,27 @@
-[{"on_spotify":true,"publish_date":"2020-01-01","name":"Genre"},{"on_spotify":false,"publish_date":"2022-04-04","name":"Genre2"},{"on_spotify":true,"publish_date":"2003-12-08","name":"classic"}]
+[
+  {
+    "on_spotify": true,
+    "publish_date": "2020-01-01",
+    "name": "Genre"
+  },
+  {
+    "on_spotify": false,
+    "publish_date": "2022-04-04",
+    "name": "Genre2"
+  },
+  {
+    "on_spotify": true,
+    "publish_date": "2003-12-08",
+    "name": "classic"
+  },
+  {
+    "on_spotify": true,
+    "publish_date": "2020-01-01",
+    "name": "Comedy"
+  },
+  {
+    "on_spotify": true,
+    "publish_date": "2020-01-01",
+    "name": "Comedy"
+  }
+]
