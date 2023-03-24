@@ -6,8 +6,10 @@ module GenreModule
       puts 'There are no genres!'
     else
       puts 'All the genres:'
+      puts '----------------------------'
       @genres.each_with_index do |genre, index|
-        puts "#{index + 1}. #{genre['name']}"
+        puts "[#{index + 1}]: ID: #{genre['id']}, Name: #{genre['name']}"
+        puts '----------------------------'
       end
     end
   end
@@ -16,7 +18,10 @@ module GenreModule
     print 'Enter the name of the genre: '
     name = gets.chomp
     genre = Genre.new(name)
-    @genres << { 'name' => genre.name }
+    @genres << { 
+      'id' => genre.instance_variable_get('@id'),
+      'name' => genre.name
+    }
     puts @genres[0]['name']
     genre
   end

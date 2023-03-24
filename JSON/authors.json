@@ -1,1 +1,6 @@
-[{"first_name":"jack","last_name":"adams"}]
+[
+  {
+    "first_name": "jack",
+    "last_name": "adams"
+  }
+]

@@ -1,1 +1,6 @@
-[{"name":"Genre"},{"name":"Genre2"},{"name":"classic"}]
+[
+  {
+    "id": 394,
+    "name": "Comedy"
+  }
+]

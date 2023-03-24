@@ -57,20 +57,25 @@ class App
       puts 'There is no game added!'
     else
       puts 'All the games: '
+      puts '----------------------------'
       @games.each_with_index do |game, index|
         print "[Game #{index + 1}]. Multiplayer : #{game['multiplayer']}, Publish Date :"
-        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_at']}"
+        puts " #{game['publish_date']}, Last Played Date : #{game['last_played_date']}"
+        puts '----------------------------'
       end
     end
   end
 
   def list_authors
+    puts 'All authors: '
+    puts '----------------------------'
     if @authors.empty?
       puts 'There are no authors!'
     else
       puts 'Authors:'
       @authors.each_with_index do |author, index|
         puts "[Author #{index + 1}]. First Name : #{author['first_name']}, Last Name : #{author['last_name']} "
+        puts '----------------------------'
       end
     end
   end
