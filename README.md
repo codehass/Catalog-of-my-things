@@ -52,7 +52,7 @@ We developed a console application for tracking various items you have acquired 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Check the link](https://drive.google.com/file/d/1sA-uJ4UwCbzWPpQ_cmUsSQp0tStwKuup/view?usp=sharing)
+[Check the link](https://drive.google.com/file/d/1vpic6BFXURc4g8ers1IKAGYOwl1WiLel/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
