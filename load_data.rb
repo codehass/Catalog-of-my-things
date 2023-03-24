@@ -19,11 +19,11 @@ class Loader
     end
   end
 
-  def save_books
+  def save_books(books)
     directory = './json/books.json'
     data = []
     File.new(directory, 'w') unless File.exist?(directory)
-    @books.each do |book|
+    books.each do |book|
       data.push({ name: book.name, publisher: book.publisher, cover_state: book.cover_state,
                   publish_date: book.publish_date })
     end
@@ -53,23 +53,23 @@ class Loader
     data
   end
 
-  def save_labels
+  def save_labels(labels)
     data = []
-    @labels.each do |label|
+    labels.each do |label|
       data.push({ id: label.id, title: label.title, color: label.color })
     end
     File.write('./json/labels.json', JSON.pretty_generate(data))
   end
 
-  def create_label(string, item)
+  def create_label(string, item, labels)
     puts "Enter #{string}'s label title:"
     title = gets.chomp
     puts "Enter #{string}'s label color:"
     color = gets.chomp
-    label = Label.new(@labels.length + 1, title, color)
+    label = Label.new(labels.length+ 1, title, color)
     label.add_item(item)
-    @labels << label
-    save_labels
+    labels << label
+    save_labels(labels)
   end
 
 end

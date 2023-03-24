@@ -1,0 +1,32 @@
+[
+  {
+    "name": "confessioon",
+    "publisher": "macmillan",
+    "cover_state": "good",
+    "publish_date": "2003-12-12"
+  },
+  {
+    "name": "Bear Trap",
+    "publisher": "Macmillan",
+    "cover_state": "good",
+    "publish_date": "1995-02-12"
+  },
+  {
+    "name": "truth",
+    "publisher": "tata",
+    "cover_state": "good",
+    "publish_date": "2003-03-12"
+  },
+  {
+    "name": "wings of fire",
+    "publisher": "tata mcgrawHill",
+    "cover_state": "good",
+    "publish_date": "2004-02-11"
+  },
+  {
+    "name": "Golden rule",
+    "publisher": "Macmillan",
+    "cover_state": "good",
+    "publish_date": "2005-09-11"
+  }
+]

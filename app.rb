@@ -19,7 +19,9 @@ class App
     loader = Loader.new
     loader.load_albums(@music_album)
     loader.load_genres(@genres)
-    loader.load_books(@books)
+    @books = loader.load_books
+    @labels = loader.load_labels
+    
   end
 
   # Code to list all books
@@ -39,9 +41,11 @@ class App
     if @labels.empty?
       puts 'no labels yet!'
     else
-      @labels.each do |label|
-        print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}"
+       puts "------------------------------------------------------------------------\n"
+        @labels.each do |label|
+        print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}\n"
       end
+      puts "------------------------------------------------------------------------\n\n"
     end
   end
 
@@ -103,6 +107,9 @@ class App
     puts date
     book = Book.new(name, publisher, cover_state, date)
     @books << book
+    loader = Loader.new
+    loader.create_label('book', book, @labels)
+    loader.save_books(@books)
     puts 'Book added successfully!'
   end
 
