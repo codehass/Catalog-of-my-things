@@ -1,17 +1,22 @@
 [
   {
-    "id": "e83e9495-71cf-4f42-ab57-d761af21f54d",
+    "id": "acfdefe4-1f99-4ccc-a5da-594e078e8302",
     "title": "classic",
     "color": "yellow"
   },
   {
-    "id": "3dadff50-8c5e-4d14-a642-15e697272693",
+    "id": "841f0a50-ec04-46bb-98ad-69b9f190d89a",
     "title": "science",
     "color": "red"
   },
   {
-    "id": "4f4a9abd-52b1-4bce-a6e3-71bd63382006",
+    "id": "f7cb79cb-c556-4a8c-b829-4c8c049628f1",
     "title": "fiction",
+    "color": "yellow"
+  },
+  {
+    "id": "a0865f02-39f7-4952-9963-a51569c78f57",
+    "title": "science",
     "color": "yellow"
   }
 ]
