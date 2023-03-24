@@ -5,7 +5,7 @@ require 'date'
 describe Label do
   context 'When testing the Label class' do
     book = Book.new('The Wings of Fire', 'publisher', 'bad', '2019/5/10')
-    label = Label.new('Book-label', 'Yellow')
+    label = Label.new(1, 'Book-label', 'Yellow')
 
     it 'Should validate the label title' do
       expect(label.title).to eq 'Book-label'
