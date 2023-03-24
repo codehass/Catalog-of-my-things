@@ -1,0 +1,27 @@
+[
+  {
+    "id": "6d3552f3-91ec-4984-a895-394d36daf624",
+    "title": "classic",
+    "color": "yellow"
+  },
+  {
+    "id": "ba40d805-a2ca-4405-bd43-c145be636171",
+    "title": "science",
+    "color": "red"
+  },
+  {
+    "id": "40be5895-abe8-433e-98ab-37ee6ff88f70",
+    "title": "fiction",
+    "color": "yellow"
+  },
+  {
+    "id": "33c64336-4f52-4dd5-85c1-2217cfd44cea",
+    "title": "science",
+    "color": "yellow"
+  },
+  {
+    "id": "f51830e0-df0a-493d-ad9b-7d81d83e025d",
+    "title": "label",
+    "color": "red"
+  }
+]
