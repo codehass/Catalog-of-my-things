@@ -132,10 +132,10 @@ class App
   end
 
   def exit_app
-    File.write('./JSON/music_album.json', JSON.generate(@music_album))
-    File.write('./JSON/genres.json', JSON.generate(@genres))
-    File.write('./JSON/games.json', JSON.generate(@games))
-    File.write('./JSON/authors.json', JSON.generate(@authors))
+    File.write('./JSON/music_album.json', JSON.pretty_generate(@music_album))
+    File.write('./JSON/genres.json', JSON.pretty_generate(@genres))
+    File.write('./JSON/games.json', JSON.pretty_generate(@games))
+    File.write('./JSON/authors.json', JSON.pretty_generate(@authors))
     puts 'Thank you for using this app!'
     exit
   end
