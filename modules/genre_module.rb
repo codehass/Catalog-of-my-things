@@ -18,7 +18,7 @@ module GenreModule
     print 'Enter the name of the genre: '
     name = gets.chomp
     genre = Genre.new(name)
-    @genres << { 
+    @genres << {
       'id' => genre.instance_variable_get('@id'),
       'name' => genre.name
     }

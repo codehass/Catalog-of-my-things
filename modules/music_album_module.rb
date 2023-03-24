@@ -15,11 +15,10 @@ module MusicAlbumModule
         puts " on spotify : #{album['on_spotify']}"
         if album['on_spotify']
           puts 'Available on spotify.'
-          puts '----------------------------'
         else
           puts 'Not available on spotify.'
-          puts '----------------------------'
         end
+        puts '----------------------------'
       end
     end
   end
