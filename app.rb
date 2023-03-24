@@ -21,7 +21,6 @@ class App
     loader.load_genres(@genres)
     @books = loader.load_books
     @labels = loader.load_labels
-    
   end
 
   # Code to list all books
@@ -41,8 +40,8 @@ class App
     if @labels.empty?
       puts 'no labels yet!'
     else
-       puts "------------------------------------------------------------------------\n"
-        @labels.each do |label|
+      puts "------------------------------------------------------------------------\n"
+      @labels.each do |label|
         print "ID: #{label.id} , Title: #{label.title} , Color: #{label.color}\n"
       end
       puts "------------------------------------------------------------------------\n\n"

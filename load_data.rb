@@ -42,6 +42,7 @@ class Loader
     end
     data
   end
+
   def load_labels
     file = './json/labels.json'
     data = []
@@ -66,10 +67,9 @@ class Loader
     title = gets.chomp
     puts "Enter #{string}'s label color:"
     color = gets.chomp
-    label = Label.new(labels.length+ 1, title, color)
+    label = Label.new(labels.length + 1, title, color)
     label.add_item(item)
     labels << label
     save_labels(labels)
   end
-
 end
