@@ -26,6 +26,8 @@
 
 # 📖 Catalog-of-my-things <a name="about-project"></a>
 
+We developed a console application for tracking various items you have acquired such as books, music albums, movies, and games. The UML class diagram provided the foundation for the project. The data is stored in JSON files, and we have also created a database with table structures that are similar to the program's class structure.
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ## 🛠 Tech Stack <a name="tech-stack"></a>
@@ -43,24 +45,24 @@
 
 ### Key Features <a name="key-features"></a>
 
-> - Add books.
-> - Add music albums.
-> - Add movies.
-> - Add games.
+> - Add A Book.
+> - Add a Music Albums.
+> - Add a Game.
+> - List all items added.
 
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- LIVE DEMO -->
-
-<!-- ## 🚀 Live Demo <a name="live-demo"></a> -->
-
-<!-- - [Not Available]() -->
+[Check the link]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
+
+## UML Diagram :
+
+<img src = './catalog_of_my_things.png'>
 
 To get a local copy up and running, follow these steps.
 
@@ -77,27 +79,39 @@ In order to run this project you need:
 
 ### Setup
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
 ```sh
- cd into your-folder
  git clone https://github.com/codehass/Catalog-of-my-things.git
+```
+
+- Navigate into the cloned folder
+
+```sh
+ cd Catalog-of-my-things
 ```
 
 ### Install
 
-Install this project with:
+- Install this project with:
 
-- GitHub Actions
-- Linters
-- Rubocop
-- Ruby
-- Rspec
+```sh
+ bundle install
+```
 
 ### Usage
 
-- Use this project as a step to learning to practice building backend applications with Ruby and OOP concepts.
-  > - run "Rspec your-file-name"
+- To run the project execute this command:
+
+```sh
+ ruby main.rb
+```
+
+### Run tests
+
+```sh
+ rspec spec
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,9 +141,9 @@ Install this project with:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Add more practice classes \*\*
-- [ ] Add more complex requirements
-- [ ] Add console interface
+- [ ] Add more option
+- [ ] Edit items
+- [ ] Remove items
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +153,7 @@ Install this project with:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/admirerbrown/TDD-project/issues).
+Feel free to check the [issues page](https://github.com/codehass/Catalog-of-my-things/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
