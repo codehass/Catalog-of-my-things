@@ -19,7 +19,7 @@ class Loader
     end
   end
 
- def save_books(books)
+  def save_books(books)
     directory = './json/books.json'
     data = []
     File.new(directory, 'w') unless File.exist?(directory)
@@ -71,7 +71,8 @@ class Loader
     label.add_item(item)
     labels << label
     save_labels(labels)
-=======
+  end
+
   def load_games(games)
     if File.exist?('./JSON/games.json')
       JSON.parse(File.read('./JSON/games.json')).each do |game|
